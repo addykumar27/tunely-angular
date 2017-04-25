@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en" ng-app="tunely">
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -19,11 +20,25 @@
     <script src="/scripts/app.js"></script>
 
   </head>
+
+
+
   <body>
     <div class="jumbotron">
       <div class="container">
         <h1>Welcome to tunely</h1>
         <p>Your music binder!</p>
+
+    
+    <div class="box" ng-controller="AlbumsIndexController as albumsIndexCtrl">                          
+    <div>
+    <p><b>{{albumsIndexCtrl.newAlbum.name}}</b> {{albumsIndexCtrl.newAlbum.artistName}}</p></div>
+    <input type="text" class="form-control" placeholder="New album name" ng-model="albumsIndexCtrl.newAlbum.name">
+    <input type="text" class="form-control" placeholder="New album artist" ng-model="albumsIndexCtrl.newAlbum.artistName">
+    <div ng-repeat="album in albumsIndexCtrl.albums">{{album.name}} - {{album.artistName}}</div>
+    <div>{{ filter_expression | filter : expression : comparator : anyPropertyKey}}</div>
+
+   </div>
       </div>
     </div>
   </body>
